@@ -1,0 +1,55 @@
+import type { MonthlyRecap } from "@/types";
+
+export const monthlyRecaps: MonthlyRecap[] = [
+  {
+    id: "recap-1",
+    month: "December",
+    year: 2025,
+    favoriteMemory: "Building a gingerbread house that looked more like a gingerbread shack. It was perfect.",
+    favoriteSong: "Spotify Wrapped — the song I'm too embarrassed to share publicly.",
+    favoriteBook: "Piranesi by Susanna Clarke",
+    biggestLesson: "Rest is productive. I don't need to earn my weekend.",
+    mood: "cozy",
+    photo: "https://images.unsplash.com/photo-1512389142860-9c449e58a714?w=800&q=80",
+    highlights: [
+      "Baked cookies for the first time in years",
+      "Re-watched all of Lord of the Rings extended edition",
+      "Hit my reading goal for the year",
+      "Started saying 'no' to things I don't want to do",
+    ],
+  },
+  {
+    id: "recap-2",
+    month: "November",
+    year: 2025,
+    favoriteMemory: "A long walk in the fog that felt like walking inside a cloud.",
+    favoriteSong: "Mystery of Love — Sufjan Stevens",
+    favoriteBook: "The Order of Time — Carlo Rovelli",
+    biggestLesson: "Discomfort is a sign of growth, not a sign to stop.",
+    mood: "foggy",
+    photo: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
+    highlights: [
+      "Finished a difficult project I was proud of",
+      "Started writing morning pages again",
+      "Had a 3-hour conversation with an old friend",
+      "Ate the best bowl of ramen of my life",
+    ],
+  },
+  {
+    id: "recap-3",
+    month: "October",
+    year: 2025,
+    favoriteMemory: "Pumpkin carving night with terrible music and worse knife skills.",
+    favoriteSong: "Let the Light In — Lana Del Rey",
+    favoriteBook: "The Song of the Cell — Siddhartha Mukherjee",
+    biggestLesson: "Your 20% effort on the right thing beats 100% on the wrong thing every time.",
+    mood: "warm",
+    photo: "https://images.unsplash.com/photo-1502020701660-ee3d900c9c4a?w=800&q=80",
+    highlights: [
+      "Went apple picking and ate my weight in cider donuts",
+      "Finally organized my bookshelf by color (sorry, purists)",
+      "Learned to make perfect roasted vegetables",
+      "Had a 'yes' day — said yes to everything. Regretted nothing.",
+    ],
+  },
+];

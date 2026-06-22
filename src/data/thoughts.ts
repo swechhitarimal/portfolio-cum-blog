@@ -1,0 +1,17 @@
+export const randomThoughts = [
+  "I wonder if fish get tired of water.",
+  "Every stranger is a protagonist in a story you'll never read.",
+  "The best conversations happen after midnight.",
+  "Maybe the real treasure was the friends we made along the way — but also, I'd like some treasure.",
+  "If buildings could talk, which one would have the most interesting stories?",
+  "I think about the Roman empire more than I'd like to admit.",
+  "The sound of rain on different surfaces should be studied more.",
+  "What if our dreams are just our brains defragmenting?",
+  "The word 'serendipity' sounds like what it means.",
+  "I bet clouds have opinions about us.",
+  "Some silences are louder than words.",
+  "The best feeling is finding $20 in a jacket you haven't worn in months.",
+  "I wonder if my dog knows I'm not a dog.",
+  "Why do we press harder on the remote when the batteries are dying?",
+  "Every time I learn something new, I realize how much I don't know. That's the good part.",
+];
