@@ -8,10 +8,11 @@ import { Mascot } from "@/components/ui/Mascot";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Work", href: "#work" },
+  { label: "Experience", href: "#experience" },
   { label: "Learning", href: "#learning" },
   { label: "TIL", href: "#til" },
   { label: "Reading", href: "#reading" },
-  { label: "Music", href: "#music" },
+  /* { label: "Music", href: "#music" }, */
   { label: "Joys", href: "#joys" },
 ];
 

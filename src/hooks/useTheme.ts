@@ -7,17 +7,16 @@ export function useTheme() {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("theme");
       if (stored === "dark" || stored === "light") return stored;
-      return "dark";
     }
-    return "dark";
+    return "light";
   });
 
   useEffect(() => {
     const root = document.documentElement;
     if (theme === "dark") {
-      root.classList.remove("light");
+      root.classList.add("dark");
     } else {
-      root.classList.add("light");
+      root.classList.remove("dark");
     }
     localStorage.setItem("theme", theme);
   }, [theme]);

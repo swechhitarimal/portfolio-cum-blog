@@ -19,6 +19,12 @@ const springCard = (i: number) => ({
   transition: { type: "spring" as const, stiffness: 90, damping: 13, delay: 0.06 + i * 0.05 },
 });
 
+const experience = [
+  { role: "Senior Software Engineer", company: "Stripe", period: "2024 — Present", desc: "Building developer tooling and payment infrastructure APIs." },
+  { role: "Software Engineer", company: "Vercel", period: "2022 — 2024", desc: "Full-stack development on the Next.js core team and platform DX." },
+  { role: "Junior Developer", company: "Figma", period: "2020 — 2022", desc: "Contributed to the plugin ecosystem and internal design systems." },
+];
+
 const projects = [
   { name: "vibe-pipeline", desc: "generate CI/CD configs from plain English", tech: "Rust", lines: "3.4k" },
   { name: "knot", desc: "a personal knowledge graph in your terminal", tech: "Go", lines: "2.1k" },
@@ -81,14 +87,14 @@ export function Home() {
 
   return (
     <>
-      <section id="home" ref={heroRef} className="relative min-h-screen overflow-hidden pt-20">
+      <section id="home" ref={heroRef} className="relative overflow-hidden pt-24 md:pt-28 pb-8 md:pb-10">
         <motion.div style={{ y: heroBgY }} className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-[var(--color-accent)]/5 blur-3xl" />
           <div className="absolute bottom-20 left-10 w-56 h-56 rounded-full bg-[var(--color-matcha)]/5 blur-3xl" />
           <div className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-[var(--color-denim)]/4 blur-3xl" />
         </motion.div>
 
-        <div className="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <div className="relative z-10 flex flex-col justify-center px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-10 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -140,9 +146,9 @@ export function Home() {
         </div>
       </section>
 
-      <section id="work" className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
-        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-12">
-          <Mascot size={48} pose="studying" className="flex-shrink-0" />
+      <section id="work" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
+          <Mascot size={128} pose="code" className="flex-shrink-0" />
           <div>
             <span className="cozy-label text-[var(--color-matcha)]">Things I Build</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">side projects & experiments</h2>
@@ -151,7 +157,7 @@ export function Home() {
 
         <div className="grid md:grid-cols-2 gap-4">
           {projects.map((p, i) => (
-            <motion.div key={p.name} {...springCard(i)} className="cozy-card p-5 md:p-6 group">
+            <motion.div key={p.name} {...springCard(i)} className="cozy-card p-4 md:p-5 group">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-round font-bold text-base group-hover:text-[var(--color-accent)] transition-colors">{p.name}</h3>
                 <span className="text-xs font-mono text-[var(--color-text-secondary)]">{p.lines} LOC</span>
@@ -168,9 +174,36 @@ export function Home() {
         </div>
       </section>
 
-      <section id="learning" className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
-        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-12">
-          <Mascot size={48} pose="reading" className="flex-shrink-0" />
+      <section id="experience" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
+          <Mascot size={128} pose="engineer" className="flex-shrink-0" />
+          <div>
+            <span className="cozy-label text-[var(--color-denim)]">Career</span>
+            <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">where i've worked</h2>
+          </div>
+        </motion.div>
+
+        <div className="space-y-4">
+          {experience.map((exp, i) => (
+            <motion.div key={exp.company} {...springCard(i)} className="cozy-card p-4 md:p-5 group relative pl-6 md:pl-7">
+              <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-[var(--color-accent)]/20 rounded-full" />
+              <div className="absolute left-[-3px] top-6 w-[7px] h-[7px] rounded-full bg-[var(--color-accent)] border-2 border-[var(--color-surface-card)]" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
+                <div>
+                  <h3 className="font-round font-bold text-base group-hover:text-[var(--color-accent)] transition-colors">{exp.role}</h3>
+                  <p className="text-sm text-[var(--color-accent)] font-round font-semibold">{exp.company}</p>
+                </div>
+                <span className="text-xs font-mono text-[var(--color-text-secondary)] whitespace-nowrap">{exp.period}</span>
+              </div>
+              <p className="text-sm text-[var(--color-text-secondary)] font-light">{exp.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section id="learning" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
+          <Mascot size={128} pose="code" className="flex-shrink-0" />
           <div>
             <span className="cozy-label text-[var(--color-denim)]">Curiosity Log</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">currently learning</h2>
@@ -179,7 +212,7 @@ export function Home() {
 
         <div className="grid sm:grid-cols-3 gap-4">
           {learning.map((l, i) => (
-            <motion.div key={l.topic} {...springCard(i)} className="cozy-card p-5 md:p-6 text-center">
+            <motion.div key={l.topic} {...springCard(i)} className="cozy-card p-4 md:p-5 text-center">
               <span className="tag-pill tag-blue inline-block mb-3">{l.tag}</span>
               <h3 className="font-round font-bold text-base mb-2">{l.topic}</h3>
               <p className="text-sm text-[var(--color-text-secondary)] font-light">{l.note}</p>
@@ -188,9 +221,9 @@ export function Home() {
         </div>
       </section>
 
-      <section id="til" className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
-        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-12">
-          <Mascot size={48} pose="studying" className="flex-shrink-0" />
+      <section id="til" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
+          <Mascot size={128} pose="teadetailed" className="flex-shrink-0" />
           <div>
             <span className="cozy-label text-[var(--color-accent)]">Today I Learned</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">curious facts & discoveries</h2>
@@ -199,7 +232,7 @@ export function Home() {
 
         <div className="grid sm:grid-cols-2 gap-4">
           {til.map((t, i) => (
-            <motion.div key={t.fact} {...springCard(i)} className="cozy-card p-5 md:p-6">
+            <motion.div key={t.fact} {...springCard(i)} className="cozy-card p-4 md:p-5">
               <span className="tag-pill tag-pink inline-block mb-2">{t.cat}</span>
               <p className="text-sm text-[var(--color-text-secondary)] font-light leading-relaxed">{t.fact}</p>
             </motion.div>
@@ -207,7 +240,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+      <section className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="cozy-card p-6 md:p-8 text-center cozy-glow relative">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[var(--color-accent)]/20 border border-[var(--color-accent)]/30">
             <span className="text-xs font-round font-semibold text-[var(--color-accent)]">random thought</span>
@@ -218,9 +251,9 @@ export function Home() {
         </motion.div>
       </section>
 
-      <section id="reading" className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
-        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-12">
-          <Mascot size={48} pose="tea" className="flex-shrink-0" />
+      <section id="reading" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
+          <Mascot size={128} pose="book" className="flex-shrink-0" />
           <div>
             <span className="cozy-label text-[var(--color-accent)]">Bookshelf</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">books i've loved</h2>
@@ -243,15 +276,18 @@ export function Home() {
         </div>
       </section>
 
-      <section id="joys" className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
-        <motion.div {...fadeUp(0)} className="mb-12">
-          <span className="cozy-label text-[var(--color-matcha)]">Little Things</span>
-          <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">small joys & curiosities</h2>
+      <section id="joys" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
+          <Mascot size={128} pose="workout" className="flex-shrink-0" />
+          <div>
+            <span className="cozy-label text-[var(--color-matcha)]">Little Things</span>
+            <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">small joys & curiosities</h2>
+          </div>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-4">
           {joys.map((j, i) => (
-            <motion.div key={j.title} {...springCard(i)} className="cozy-card p-5 md:p-6 group">
+            <motion.div key={j.title} {...springCard(i)} className="cozy-card p-4 md:p-5 group">
               <j.icon size={18} className="text-[var(--color-accent)] mb-3" />
               <h3 className="font-round font-bold text-sm mb-1.5 group-hover:text-[var(--color-accent)] transition-colors">{j.title}</h3>
               <p className="text-sm text-[var(--color-text-secondary)] font-light">{j.text}</p>
@@ -260,8 +296,9 @@ export function Home() {
         </div>
       </section>
 
-      <section id="music" className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
-        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-12">
+      {/*
+      <section id="music" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
           <Mascot size={48} pose="working" className="flex-shrink-0" />
           <div>
             <span className="cozy-label text-[var(--color-denim)]">Soundtrack</span>
@@ -423,13 +460,13 @@ export function Home() {
             </motion.div>
           </div>
         </div>
-
       </section>
+*/}
 
-      <section className="py-10 md:py-14 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+      <section className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="text-center">
           <div className="flex justify-center mb-6">
-            <Mascot size={80} pose="tea" className="animate-cozy-float" />
+            <Mascot size={128} pose="teadetailed" className="animate-cozy-float" />
           </div>
           <div className="cozy-divider mb-8" />
           <p className="text-xs font-round font-semibold text-[var(--color-text-secondary)] mb-2 tracking-widest uppercase">
