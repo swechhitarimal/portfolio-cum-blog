@@ -37,7 +37,7 @@ export function AnimatedCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-6 h-6 rounded-full border-2 border-[var(--color-accent)] pointer-events-none z-[100] transition-[width,height] duration-200 hidden md:block opacity-0 mix-blend-difference"
+      className="fixed top-0 left-0 w-6 h-6 rounded-full border-2 border--accent pointer-events-none z-[100] transition-[width,height] duration-200 hidden md:block opacity-0 mix-blend-difference"
       style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
     />
   );

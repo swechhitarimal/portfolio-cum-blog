@@ -56,7 +56,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
         scrolled
-          ? "bg-[var(--color-surface)]/85 backdrop-blur-lg border-b border-[var(--color-border)]"
+          ? "bg--surface/85 backdrop-blur-lg border-b border--border"
           : "bg-transparent"
       )}
     >
@@ -66,7 +66,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
           className="flex items-center gap-2 group"
         >
           <Mascot size={32} pose="tea" className="transition-transform duration-300 group-hover:animate-cozy-wiggle" />
-          <span className="font-round font-bold text-base tracking-tight text-[var(--color-text)]">
+          <span className="font-round font-bold text-base tracking-tight text--text">
             wanderer
           </span>
         </a>
@@ -79,14 +79,14 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
               className={cn(
                 "px-3.5 py-2 rounded-full text-sm font-round font-medium transition-all duration-300",
                 activeSection === link.href.slice(1)
-                  ? "text-[var(--color-accent-dark)] bg-[var(--color-accent-light)]/30"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface-alt)]"
+                  ? "text--accent-dark bg--accent-light/30"
+                  : "text--text-secondary hover:text--text hover:bg--surface-alt"
               )}
             >
               {link.label}
             </a>
           ))}
-          <div className="ml-3 pl-3 border-l border-[var(--color-border)]">
+          <div className="ml-3 pl-3 border-l border--border">
             <ThemeToggle theme={theme} toggle={toggleTheme} />
           </div>
         </div>
@@ -95,7 +95,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
           <ThemeToggle theme={theme} toggle={toggleTheme} />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="w-10 h-10 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] flex items-center justify-center cursor-pointer"
+            className="w-10 h-10 rounded-full border border--border bg--surface flex items-center justify-center cursor-pointer"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={16} /> : <Menu size={16} />}
@@ -109,7 +109,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur-lg overflow-hidden"
+            className="md:hidden border-b border--border bg--surface/95 backdrop-blur-lg overflow-hidden"
           >
             <div className="px-6 py-6 space-y-2">
               {navLinks.map((link) => (
@@ -120,8 +120,8 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
                   className={cn(
                     "block px-4 py-3 rounded-2xl text-sm font-round font-medium transition-colors",
                     activeSection === link.href.slice(1)
-                      ? "text-[var(--color-accent-dark)] bg-[var(--color-accent-light)]/30"
-                      : "text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface-alt)]"
+                      ? "text--accent-dark bg--accent-light/30"
+                      : "text--text-secondary hover:text--text hover:bg--surface-alt"
                   )}
                 >
                   {link.label}

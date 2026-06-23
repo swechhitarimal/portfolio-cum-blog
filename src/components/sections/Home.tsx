@@ -34,7 +34,7 @@ const projects = [
 
 const learning = [
   { topic: "Rust Lifetimes", note: "The borrow checker and I are becoming friends. Slowly.", tag: "deep dive" },
-  { topic: "Japanese", note: "N4 level. Can order ramen and complain about humidity.", tag: "slow burn" },
+  { topic: "Spanish", note: "A2 level. Can order ramen and complain about humidity.", tag: "slow burn" },
   { topic: "Analog Photography", note: "36 frames. No delete button. Learning to be patient.", tag: "ongoing" },
 ];
 
@@ -89,9 +89,9 @@ export function Home() {
     <>
       <section id="home" ref={heroRef} className="relative overflow-hidden pt-24 md:pt-28 pb-8 md:pb-10">
         <motion.div style={{ y: heroBgY }} className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-[var(--color-accent)]/5 blur-3xl" />
-          <div className="absolute bottom-20 left-10 w-56 h-56 rounded-full bg-[var(--color-matcha)]/5 blur-3xl" />
-          <div className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-[var(--color-denim)]/4 blur-3xl" />
+          <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-accent/5 blur-3xl" />
+          <div className="absolute bottom-20 left-10 w-56 h-56 rounded-full bg-matcha/5 blur-3xl" />
+          <div className="absolute top-1/3 left-1/3 w-40 h-40 rounded-full bg-denim/4 blur-3xl" />
         </motion.div>
 
         <div className="relative z-10 flex flex-col justify-center px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
@@ -104,17 +104,16 @@ export function Home() {
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="badge-dot badge-dot-pink" />
-                <span className="cozy-label text-[var(--color-accent)]">cozy corner &bull; issue 01</span>
+                <span className="cozy-label text-accent">cozy corner &bull; issue 01</span>
               </div>
-              <h1 className="cozy-heading-xl text-[var(--color-text)] mb-4">
+              <h1 className="cozy-heading-xl text-text mb-4">
                 hi there, i'm
-                <span className="block text-[var(--color-accent)]">wanderer</span>
+                <span className="block text-accent">wanderer</span>
               </h1>
-              <p className="text-base md:text-lg text-[var(--color-text-secondary)] max-w-lg font-light leading-relaxed mb-8">
-                a developer, curious human, and collector of half-baked ideas.
-                this is my cozy corner of the internet — where i share things i'm
-                building, learning, reading, and thinking about.
-              </p>
+              <div className="text-base md:text-lg text-text-secondary max-w-lg font-light leading-relaxed mb-8 text-justify space-y-3">
+                <p>a biomedical engineer with a love for human physiology. I currently work in software, building solutions for the healthcare sector while exploring the intersection of medicine and technology.</p>
+                <p>when i'm away from the screen, you'll find me reading a book, learning something new, or spending time with cats.</p>
+              </div>
               <div className="flex flex-wrap items-center gap-3">
                 <a href="#work" className="cozy-btn cozy-btn-primary">
                   see what i do <ArrowDown size={14} />
@@ -134,11 +133,11 @@ export function Home() {
               <div className="relative">
                 <Mascot size={200} pose="working" className="animate-cozy-float" />
                 <motion.div
-                  className="absolute -bottom-2 -right-2 px-3 py-1.5 rounded-full bg-[var(--color-matcha)]/20 border border-[var(--color-matcha)]/30"
+                  className="absolute -bottom-2 -right-2 px-3 py-1.5 rounded-full bg-matcha/20 border border-matcha/30"
                   animate={{ y: [0, -4, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className="text-xs font-round font-semibold text-[var(--color-matcha)]">building things</span>
+                  <span className="text-xs font-round font-semibold text-matcha">building things</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -148,9 +147,9 @@ export function Home() {
 
       <section id="work" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={128} pose="code" className="flex-shrink-0" />
+          <Mascot size={128} pose="code" className="shrink-0" />
           <div>
-            <span className="cozy-label text-[var(--color-matcha)]">Things I Build</span>
+            <span className="cozy-label text-matcha">Things I Build</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">side projects & experiments</h2>
           </div>
         </motion.div>
@@ -159,13 +158,13 @@ export function Home() {
           {projects.map((p, i) => (
             <motion.div key={p.name} {...springCard(i)} className="cozy-card p-4 md:p-5 group">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-round font-bold text-base group-hover:text-[var(--color-accent)] transition-colors">{p.name}</h3>
-                <span className="text-xs font-mono text-[var(--color-text-secondary)]">{p.lines} LOC</span>
+                <h3 className="font-round font-bold text-base group-hover:text-accent transition-colors">{p.name}</h3>
+                <span className="text-xs font-mono text-text-secondary">{p.lines} LOC</span>
               </div>
-              <p className="text-sm text-[var(--color-text-secondary)] font-light mb-3">{p.desc}</p>
+              <p className="text-sm text-text-secondary font-light mb-3">{p.desc}</p>
               <div className="flex items-center gap-2">
                 <span className="tag-pill tag-green">{p.tech}</span>
-                <span className="text-xs text-[var(--color-text-secondary)] flex items-center gap-0.5 ml-auto group-hover:text-[var(--color-accent)] transition-colors">
+                <span className="text-xs text-text-secondary flex items-center gap-0.5 ml-auto group-hover:text-accent transition-colors">
                   view <ArrowUpRight size={11} />
                 </span>
               </div>
@@ -176,9 +175,9 @@ export function Home() {
 
       <section id="experience" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={128} pose="engineer" className="flex-shrink-0" />
+          <Mascot size={128} pose="engineer" className="shrink-0" />
           <div>
-            <span className="cozy-label text-[var(--color-denim)]">Career</span>
+            <span className="cozy-label text-denim">Career</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">where i've worked</h2>
           </div>
         </motion.div>
@@ -186,16 +185,16 @@ export function Home() {
         <div className="space-y-4">
           {experience.map((exp, i) => (
             <motion.div key={exp.company} {...springCard(i)} className="cozy-card p-4 md:p-5 group relative pl-6 md:pl-7">
-              <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-[var(--color-accent)]/20 rounded-full" />
-              <div className="absolute left-[-3px] top-6 w-[7px] h-[7px] rounded-full bg-[var(--color-accent)] border-2 border-[var(--color-surface-card)]" />
+              <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-accent/20 rounded-full" />
+              <div className="absolute -left-0.75 top-6 w-1.75 h-1.75 rounded-full bg-accent border-2 border-surface-card" />
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
                 <div>
-                  <h3 className="font-round font-bold text-base group-hover:text-[var(--color-accent)] transition-colors">{exp.role}</h3>
-                  <p className="text-sm text-[var(--color-accent)] font-round font-semibold">{exp.company}</p>
+                  <h3 className="font-round font-bold text-base group-hover:text-accent transition-colors">{exp.role}</h3>
+                  <p className="text-sm text-accent font-round font-semibold">{exp.company}</p>
                 </div>
-                <span className="text-xs font-mono text-[var(--color-text-secondary)] whitespace-nowrap">{exp.period}</span>
+                <span className="text-xs font-mono text-text-secondary whitespace-nowrap">{exp.period}</span>
               </div>
-              <p className="text-sm text-[var(--color-text-secondary)] font-light">{exp.desc}</p>
+              <p className="text-sm text-text-secondary font-light">{exp.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -203,9 +202,9 @@ export function Home() {
 
       <section id="learning" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={128} pose="code" className="flex-shrink-0" />
+          <Mascot size={128} pose="code" className="shrink-0" />
           <div>
-            <span className="cozy-label text-[var(--color-denim)]">Curiosity Log</span>
+            <span className="cozy-label text-denim">Curiosity Log</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">currently learning</h2>
           </div>
         </motion.div>
@@ -215,7 +214,7 @@ export function Home() {
             <motion.div key={l.topic} {...springCard(i)} className="cozy-card p-4 md:p-5 text-center">
               <span className="tag-pill tag-blue inline-block mb-3">{l.tag}</span>
               <h3 className="font-round font-bold text-base mb-2">{l.topic}</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] font-light">{l.note}</p>
+              <p className="text-sm text-text-secondary font-light">{l.note}</p>
             </motion.div>
           ))}
         </div>
@@ -223,9 +222,9 @@ export function Home() {
 
       <section id="til" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={128} pose="teadetailed" className="flex-shrink-0" />
+          <Mascot size={128} pose="teadetailed" className="shrink-0" />
           <div>
-            <span className="cozy-label text-[var(--color-accent)]">Today I Learned</span>
+            <span className="cozy-label text-accent">Today I Learned</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">curious facts & discoveries</h2>
           </div>
         </motion.div>
@@ -234,7 +233,7 @@ export function Home() {
           {til.map((t, i) => (
             <motion.div key={t.fact} {...springCard(i)} className="cozy-card p-4 md:p-5">
               <span className="tag-pill tag-pink inline-block mb-2">{t.cat}</span>
-              <p className="text-sm text-[var(--color-text-secondary)] font-light leading-relaxed">{t.fact}</p>
+              <p className="text-sm text-text-secondary font-light leading-relaxed">{t.fact}</p>
             </motion.div>
           ))}
         </div>
@@ -242,10 +241,10 @@ export function Home() {
 
       <section className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="cozy-card p-6 md:p-8 text-center cozy-glow relative">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[var(--color-accent)]/20 border border-[var(--color-accent)]/30">
-            <span className="text-xs font-round font-semibold text-[var(--color-accent)]">random thought</span>
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent/20 border border-accent/30">
+            <span className="text-xs font-round font-semibold text-accent">random thought</span>
           </div>
-          <p className="text-lg md:text-xl font-light italic text-[var(--color-text)] leading-relaxed mt-4">
+          <p className="text-lg md:text-xl font-light italic text-text leading-relaxed mt-4">
             "maybe the opposite of burnout isn't rest. it's doing things that make you forget to check your phone."
           </p>
         </motion.div>
@@ -253,9 +252,9 @@ export function Home() {
 
       <section id="reading" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={128} pose="book" className="flex-shrink-0" />
+          <Mascot size={128} pose="book" className="shrink-0" />
           <div>
-            <span className="cozy-label text-[var(--color-accent)]">Bookshelf</span>
+            <span className="cozy-label text-accent">Bookshelf</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">books i've loved</h2>
           </div>
         </motion.div>
@@ -263,13 +262,13 @@ export function Home() {
         <div className="grid md:grid-cols-3 gap-4">
           {books.map((b, i) => (
             <motion.div key={b.title} {...springCard(i)} className="cozy-card overflow-hidden group">
-              <div className="cozy-image aspect-[4/3]">
+              <div className="cozy-image aspect-4/3">
                 <img src={b.src} alt={b.title} className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-round font-bold text-base mb-0.5">{b.title}</h3>
-                <p className="text-xs font-round font-semibold text-[var(--color-accent)] mb-2">{b.author}</p>
-                <p className="text-sm text-[var(--color-text-secondary)] font-light italic">"{b.thought}"</p>
+                <p className="text-xs font-round font-semibold text-accent mb-2">{b.author}</p>
+                <p className="text-sm text-text-secondary font-light italic">"{b.thought}"</p>
               </div>
             </motion.div>
           ))}
@@ -278,9 +277,9 @@ export function Home() {
 
       <section id="joys" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={128} pose="workout" className="flex-shrink-0" />
+          <Mascot size={128} pose="workout" className="shrink-0" />
           <div>
-            <span className="cozy-label text-[var(--color-matcha)]">Little Things</span>
+            <span className="cozy-label text-matcha">Little Things</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">small joys & curiosities</h2>
           </div>
         </motion.div>
@@ -288,9 +287,9 @@ export function Home() {
         <div className="grid sm:grid-cols-2 gap-4">
           {joys.map((j, i) => (
             <motion.div key={j.title} {...springCard(i)} className="cozy-card p-4 md:p-5 group">
-              <j.icon size={18} className="text-[var(--color-accent)] mb-3" />
-              <h3 className="font-round font-bold text-sm mb-1.5 group-hover:text-[var(--color-accent)] transition-colors">{j.title}</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] font-light">{j.text}</p>
+              <j.icon size={18} className="text-accent mb-3" />
+              <h3 className="font-round font-bold text-sm mb-1.5 group-hover:text-accent transition-colors">{j.title}</h3>
+              <p className="text-sm text-text-secondary font-light">{j.text}</p>
             </motion.div>
           ))}
         </div>
@@ -299,9 +298,9 @@ export function Home() {
       {/*
       <section id="music" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={48} pose="working" className="flex-shrink-0" />
+          <Mascot size={48} pose="working" className="shrink-0" />
           <div>
-            <span className="cozy-label text-[var(--color-denim)]">Soundtrack</span>
+            <span className="cozy-label text-denim">Soundtrack</span>
             <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">music i love</h2>
           </div>
         </motion.div>
@@ -320,21 +319,21 @@ export function Home() {
                   transition={{ duration: 0.5, ease }}
                 />
               </div>
-              <div className="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-surface)]/80 backdrop-blur-sm border border-[var(--color-border)]/50">
+              <div className="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/80 backdrop-blur-sm border border-border/50">
                 <motion.span
-                  className="w-1.5 h-1.5 rounded-full bg-[var(--color-matcha)]"
+                  className="w-1.5 h-1.5 rounded-full bg-matcha"
                   animate={{ opacity: isPlaying ? [1, 0.3, 1] : 0.3 }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 />
-                <span className="text-[10px] font-round font-semibold text-[var(--color-text)]">{isPlaying ? "now playing" : "paused"}</span>
+                <span className="text-[10px] font-round font-semibold text-text">{isPlaying ? "now playing" : "paused"}</span>
               </div>
             </div>
             <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-between">
               <div>
                 <span className="badge-dot badge-dot-pink" />
-                <span className="ml-2 text-xs font-round font-semibold text-[var(--color-accent)] uppercase tracking-wider">featured artist</span>
+                <span className="ml-2 text-xs font-round font-semibold text-accent uppercase tracking-wider">featured artist</span>
                 <h3 className="font-round font-bold text-2xl md:text-3xl mt-2">The Weeknd</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] font-light mt-1 mb-4 leading-relaxed max-w-lg">
+                <p className="text-sm text-text-secondary font-light mt-1 mb-4 leading-relaxed max-w-lg">
                   blends R&B, synth-pop, and emotional storytelling into cinematic soundscapes.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-5">
@@ -346,49 +345,49 @@ export function Home() {
               </div>
               <div className="space-y-3">
                 <motion.div key={track.title} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease }}>
-                  <p className="font-round font-bold text-sm text-[var(--color-text)]">{track.title}</p>
-                  <p className="text-xs text-[var(--color-text-secondary)] font-light">{track.artist}</p>
+                  <p className="font-round font-bold text-sm text-text">{track.title}</p>
+                  <p className="text-xs text-text-secondary font-light">{track.artist}</p>
                 </motion.div>
                 <div className="flex items-center gap-4">
                   <motion.button
                     onClick={handlePrev}
-                    className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center cursor-pointer hover:bg-[var(--color-accent-dark)] transition-colors"
+                    className="w-10 h-10 rounded-full bg-accent flex items-center justify-center cursor-pointer hover:bg-accent-dark transition-colors"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <SkipBack size={16} className="text-[var(--color-surface)]" />
+                    <SkipBack size={16} className="text-surface" />
                   </motion.button>
                   <motion.button
                     onClick={handlePlayPause}
-                    className="w-12 h-12 rounded-full bg-[var(--color-accent)] flex items-center justify-center cursor-pointer hover:bg-[var(--color-accent-dark)] transition-colors"
+                    className="w-12 h-12 rounded-full bg-accent flex items-center justify-center cursor-pointer hover:bg-accent-dark transition-colors"
                     whileHover={{ scale: 1.08 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {isPlaying ? <Pause size={18} className="text-[var(--color-surface)]" /> : <Play size={18} className="text-[var(--color-surface)] ml-0.5" />}
+                    {isPlaying ? <Pause size={18} className="text-surface" /> : <Play size={18} className="text-surface ml-0.5" />}
                   </motion.button>
                   <motion.button
                     onClick={handleNext}
-                    className="w-10 h-10 rounded-full bg-[var(--color-accent)] flex items-center justify-center cursor-pointer hover:bg-[var(--color-accent-dark)] transition-colors"
+                    className="w-10 h-10 rounded-full bg-accent flex items-center justify-center cursor-pointer hover:bg-accent-dark transition-colors"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <SkipForward size={16} className="text-[var(--color-surface)]" />
+                    <SkipForward size={16} className="text-surface" />
                   </motion.button>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-mono text-[var(--color-text-secondary)]">1:24</span>
-                  <div className="flex-1 h-1.5 rounded-full bg-[var(--color-border)] overflow-hidden">
+                  <span className="text-[10px] font-mono text-text-secondary">1:24</span>
+                  <div className="flex-1 h-1.5 rounded-full bg-border overflow-hidden">
                     <motion.div
                       key={track.title}
-                      className="h-full rounded-full bg-[var(--color-accent)]"
+                      className="h-full rounded-full bg-accent"
                       initial={{ width: 0 }}
                       animate={{ width: `${progressPct}%` }}
                       transition={{ duration: 0.8, ease }}
                     />
                   </div>
-                  <span className="text-[10px] font-mono text-[var(--color-text-secondary)]">{track.dur}</span>
+                  <span className="text-[10px] font-mono text-text-secondary">{track.dur}</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] font-light">
+                <div className="flex items-center gap-1.5 text-xs text-text-secondary font-light">
                   <ListMusic size={12} />
                   <span>{track.title} &bull; Trilogy</span>
                 </div>
@@ -400,32 +399,32 @@ export function Home() {
         <div className="grid md:grid-cols-5 gap-6 mb-12">
           <div className="md:col-span-3">
             <motion.div {...fadeUp(0.1)} className="cozy-card overflow-hidden h-full">
-              <div className="p-4 md:p-5 border-b border-[var(--color-border)] flex items-center justify-between">
+              <div className="p-4 md:p-5 border-b border-border flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <ListMusic size={14} className="text-[var(--color-accent)]" />
-                  <span className="text-xs font-round font-semibold uppercase tracking-wider text-[var(--color-text)]">queue</span>
+                  <ListMusic size={14} className="text-accent" />
+                  <span className="text-xs font-round font-semibold uppercase tracking-wider text-text">queue</span>
                 </div>
-                <span className="text-[10px] font-mono text-[var(--color-text-secondary)]">{queueTracks.length} tracks</span>
+                <span className="text-[10px] font-mono text-text-secondary">{queueTracks.length} tracks</span>
               </div>
-              <div className="divide-y divide-[var(--color-border)]/50">
+              <div className="divide-y divide-border/50">
                 {queueTracks.map((t, i) => (
                   <motion.div
                     key={t.title}
                     onClick={() => { setCurrentTrack(i); setIsPlaying(true); }}
-                    className={`flex items-center gap-3 px-4 md:px-5 py-3 transition-colors hover:bg-[var(--color-accent)]/5 group/track cursor-pointer ${i === currentTrack ? "bg-[var(--color-accent)]/5 border-l-2 border-[var(--color-accent)]" : ""}`}
+                    className={`flex items-center gap-3 px-4 md:px-5 py-3 transition-colors hover:bg-accent/5 group/track cursor-pointer ${i === currentTrack ? "bg-accent/5 border-l-2 border-accent" : ""}`}
                     whileHover={{ x: 2 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <span className={`w-5 text-xs font-mono font-medium tabular-nums ${i === currentTrack ? "text-[var(--color-accent)]" : "text-[var(--color-text-secondary)]"}`}>{String(i + 1).padStart(2, "0")}</span>
-                    <div className="w-9 h-9 rounded-md overflow-hidden flex-shrink-0 bg-[var(--color-surface-alt)]">
+                    <span className={`w-5 text-xs font-mono font-medium tabular-nums ${i === currentTrack ? "text-accent" : "text-text-secondary"}`}>{String(i + 1).padStart(2, "0")}</span>
+                    <div className="w-9 h-9 rounded-md overflow-hidden shrink-0 bg-surface-alt">
                       <img src={t.src.replace("w=600", "w=100")} alt="" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-sm truncate ${i === currentTrack ? "font-bold text-[var(--color-accent)]" : "font-medium text-[var(--color-text)]"}`}>{t.title}</p>
-                      <p className="text-[11px] text-[var(--color-text-secondary)] font-light">{t.artist}</p>
+                      <p className={`text-sm truncate ${i === currentTrack ? "font-bold text-accent" : "font-medium text-text"}`}>{t.title}</p>
+                      <p className="text-[11px] text-text-secondary font-light">{t.artist}</p>
                     </div>
-                    <Heart size={13} className="text-[var(--color-text-secondary)] opacity-50 group-hover/track:opacity-100 transition-opacity hover:text-[var(--color-accent)]" />
-                    <span className="text-[11px] font-mono text-[var(--color-text-secondary)]">{t.dur}</span>
+                    <Heart size={13} className="text-text-secondary opacity-50 group-hover/track:opacity-100 transition-opacity hover:text-accent" />
+                    <span className="text-[11px] font-mono text-text-secondary">{t.dur}</span>
                   </motion.div>
                 ))}
               </div>
@@ -434,8 +433,8 @@ export function Home() {
 
           <div className="md:col-span-2">
             <motion.div {...fadeUp(0.15)} className="cozy-card overflow-hidden h-full">
-              <div className="p-4 md:p-5 border-b border-[var(--color-border)]">
-                <span className="cozy-label text-[var(--color-matcha)]">On Repeat</span>
+              <div className="p-4 md:p-5 border-b border-border">
+                <span className="cozy-label text-matcha">On Repeat</span>
                 <h3 className="font-round font-bold text-lg mt-1">current rotation</h3>
               </div>
               <div className="p-4 md:p-5">
@@ -451,7 +450,7 @@ export function Home() {
                         <img src={album.src} alt={album.label} className="w-full h-full object-cover" />
                       </div>
                       <div className="p-2.5 text-center">
-                        <p className="text-xs font-round font-semibold text-[var(--color-text-secondary)] truncate">{album.label}</p>
+                        <p className="text-xs font-round font-semibold text-text-secondary truncate">{album.label}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -469,10 +468,10 @@ export function Home() {
             <Mascot size={128} pose="teadetailed" className="animate-cozy-float" />
           </div>
           <div className="cozy-divider mb-8" />
-          <p className="text-xs font-round font-semibold text-[var(--color-text-secondary)] mb-2 tracking-widest uppercase">
+          <p className="text-xs font-round font-semibold text-text-secondary mb-2 tracking-widest uppercase">
             volume 01 &bull; summer 2026
           </p>
-          <p className="text-sm text-[var(--color-text-secondary)] font-light">
+          <p className="text-sm text-text-secondary font-light">
             made with curiosity, caffeine, and a black cat who supervises everything.
           </p>
           <div className="flex items-center justify-center gap-4 mt-6">

@@ -17,7 +17,7 @@ export function Card({ children, className, hover = true, glow = false, onClick 
       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
       onClick={onClick}
       className={cn(
-        "relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 overflow-hidden",
+        "relative rounded-2xl border border--border bg--surface p-6 overflow-hidden",
         glow && "shadow-[0_0_30px_-12px_var(--color-accent)]",
         className
       )}

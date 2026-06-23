@@ -13,10 +13,10 @@ export function MonthlyRecaps() {
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <ScrollReveal>
           <div className="flex items-center gap-3 mb-2">
-            <Calendar size={20} className="text-[var(--color-burgundy)]" />
+            <Calendar size={20} className="text-(--color-burgundy)" />
             <h2 className="text-3xl md:text-4xl font-serif font-bold">Monthly Recaps</h2>
           </div>
-          <p className="text-[var(--color-text-secondary)] font-light mb-8 max-w-xl">
+          <p className="text--text-secondary font-light mb-8 max-w-xl">
             A visual journal of each month — memories, songs, books, lessons, and moments I want to remember.
           </p>
         </ScrollReveal>
@@ -36,30 +36,30 @@ export function MonthlyRecaps() {
 
                       <div className="space-y-4">
                         <div className="flex items-start gap-3">
-                          <Star size={16} className="text-[var(--color-amber)] mt-0.5 flex-shrink-0" />
+                          <Star size={16} className="text-(--color-amber) mt-0.5 flex-shrink-0" />
                           <div>
-                            <span className="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider">Favorite memory</span>
+                            <span className="text-xs font-medium text--text-secondary uppercase tracking-wider">Favorite memory</span>
                             <p className="text-sm mt-0.5">{recap.favoriteMemory}</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <Music size={16} className="text-[var(--color-burgundy)] mt-0.5 flex-shrink-0" />
+                          <Music size={16} className="text-(--color-burgundy) mt-0.5 flex-shrink-0" />
                           <div>
-                            <span className="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider">Favorite song</span>
+                            <span className="text-xs font-medium text--text-secondary uppercase tracking-wider">Favorite song</span>
                             <p className="text-sm mt-0.5">{recap.favoriteSong}</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <BookOpen size={16} className="text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
+                          <BookOpen size={16} className="text--accent mt-0.5 flex-shrink-0" />
                           <div>
-                            <span className="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider">Favorite book</span>
+                            <span className="text-xs font-medium text--text-secondary uppercase tracking-wider">Favorite book</span>
                             <p className="text-sm mt-0.5">{recap.favoriteBook}</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <Sparkles size={16} className="text-[var(--color-burgundy-light)] mt-0.5 flex-shrink-0" />
+                          <Sparkles size={16} className="text-(--color-burgundy-light) mt-0.5 flex-shrink-0" />
                           <div>
-                            <span className="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wider">Biggest lesson</span>
+                            <span className="text-xs font-medium text--text-secondary uppercase tracking-wider">Biggest lesson</span>
                             <p className="text-sm mt-0.5 italic">"{recap.biggestLesson}"</p>
                           </div>
                         </div>
@@ -70,11 +70,11 @@ export function MonthlyRecaps() {
 
                 <div className="lg:col-span-2">
                   <div className="glass rounded-2xl p-6">
-                    <h4 className="text-sm font-medium uppercase tracking-wider text-[var(--color-text-secondary)] mb-4">Highlights</h4>
+                    <h4 className="text-sm font-medium uppercase tracking-wider text--text-secondary mb-4">Highlights</h4>
                     <ul className="space-y-3">
                       {recap.highlights.map((h, i) => (
                         <motion.li key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-2 flex-shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg--accent mt-2 flex-shrink-0" />
                           <span className="text-sm font-light">{h}</span>
                         </motion.li>
                       ))}
@@ -88,12 +88,12 @@ export function MonthlyRecaps() {
 
         <div className="flex items-center justify-center gap-4 mt-8">
           <button onClick={() => setActiveIndex((prev) => (prev > 0 ? prev - 1 : monthlyRecaps.length - 1))}
-            className="w-10 h-10 rounded-xl border border-[var(--color-border)] flex items-center justify-center hover:border-[var(--color-accent)] transition-colors cursor-pointer">
+            className="w-10 h-10 rounded-xl border border--border flex items-center justify-center hover:border--accent transition-colors cursor-pointer">
             <ChevronLeft size={16} />
           </button>
-          <span className="text-sm text-[var(--color-text-secondary)] font-mono">{activeIndex + 1} / {monthlyRecaps.length}</span>
+          <span className="text-sm text--text-secondary font-mono">{activeIndex + 1} / {monthlyRecaps.length}</span>
           <button onClick={() => setActiveIndex((prev) => (prev < monthlyRecaps.length - 1 ? prev + 1 : 0))}
-            className="w-10 h-10 rounded-xl border border-[var(--color-border)] flex items-center justify-center hover:border-[var(--color-accent)] transition-colors cursor-pointer">
+            className="w-10 h-10 rounded-xl border border--border flex items-center justify-center hover:border--accent transition-colors cursor-pointer">
             <ChevronRight size={16} />
           </button>
         </div>

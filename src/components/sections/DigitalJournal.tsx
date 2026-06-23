@@ -29,10 +29,10 @@ export function DigitalJournal() {
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <ScrollReveal>
           <div className="flex items-center gap-3 mb-2">
-            <Book size={20} className="text-[var(--color-burgundy)]" />
+            <Book size={20} className="text-(--color-burgundy)" />
             <h2 className="text-3xl md:text-4xl font-serif font-bold">Digital Journal</h2>
           </div>
-          <p className="text-[var(--color-text-secondary)] font-light mb-10 max-w-xl">
+          <p className="text--text-secondary font-light mb-10 max-w-xl">
             half-baked thoughts, small moments, and the quiet parts of my brain.
           </p>
         </ScrollReveal>
@@ -56,12 +56,12 @@ export function DigitalJournal() {
               <div className="p-6 md:p-7 pl-7 md:pl-8">
                 <div className="flex items-baseline gap-3 mb-2">
                   <h3 className="font-serif font-bold text-lg">{entry.title}</h3>
-                  <span className="text-[11px] text-[var(--color-text-secondary)] font-mono">
+                  <span className="text-[11px] text--text-secondary font-mono">
                     {entry.date}
                   </span>
                 </div>
 
-                <p className="text-sm text-[var(--color-text-secondary)] font-light leading-relaxed mb-4">
+                <p className="text-sm text--text-secondary font-light leading-relaxed mb-4">
                   {entry.body}
                 </p>
 
@@ -78,7 +78,7 @@ export function DigitalJournal() {
                   {entry.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded border border-[var(--color-border)] text-[var(--color-text-secondary)] font-mono text-[10px]"
+                      className="px-2 py-0.5 rounded border border--border text--text-secondary font-mono text-[10px]"
                     >
                       #{tag}
                     </span>

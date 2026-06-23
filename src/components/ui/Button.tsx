@@ -22,10 +22,10 @@ export function Button({ children, href, onClick, type = "button", className, va
   };
 
   const variants = {
-    primary: "bg-[var(--color-text)] text-[var(--color-surface)] hover:bg-[var(--color-accent)] border border-transparent",
-    secondary: "border border-[var(--color-border)] bg-transparent hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]",
-    ghost: "border border-transparent bg-transparent hover:bg-[var(--color-surface-alt)]",
-    magnetic: "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] border border-transparent shadow-lg shadow-[var(--color-accent)]/20",
+    primary: "bg--text text--surface hover:bg--accent border border-transparent",
+    secondary: "border border--border bg-transparent hover:border--accent hover:text--accent",
+    ghost: "border border-transparent bg-transparent hover:bg--surface-alt",
+    magnetic: "bg--accent text-white hover:bg--accent-dark border border-transparent shadow-lg shadow--accent/20",
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
