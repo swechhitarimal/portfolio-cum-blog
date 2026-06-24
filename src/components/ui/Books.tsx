@@ -1,6 +1,6 @@
-import ATSSSvg from '@/assets/books/atss.svg'
-import LionWomenSvg from '@/assets/books/lion-women.svg'
-import MaliceSvg from '@/assets/books/malice.svg'
+import ATSSSvg from '@/assets/books/atss.svg?react'
+import LionWomenSvg from '@/assets/books/lion-women.svg?react'
+import MaliceSvg from '@/assets/books/malice.svg?react'
 
 export function ATSS({ className = '' }: { className?: string }) {
   return <ATSSSvg className={className} />
