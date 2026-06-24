@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Heart, Music, Globe, Lightbulb, Play, Pause, SkipBack, SkipForward, ListMusic } from "lucide-react";
 import { Mascot } from "@/components/ui/Mascot";
+import { ATSS, LionWomen, Malice } from "@/components/ui/Books";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
@@ -20,9 +21,8 @@ const springCard = (i: number) => ({
 });
 
 const experience = [
-  { role: "Senior Software Engineer", company: "Stripe", period: "2024 — Present", desc: "Building developer tooling and payment infrastructure APIs." },
-  { role: "Software Engineer", company: "Vercel", period: "2022 — 2024", desc: "Full-stack development on the Next.js core team and platform DX." },
-  { role: "Junior Developer", company: "Figma", period: "2020 — 2022", desc: "Contributed to the plugin ecosystem and internal design systems." },
+  { role: "Software Developer", company: "Midas Health Services", period: "Jan 2024 — Present", desc: "Building healthcare software and medical device integration solutions, focused on improving clinical workflows and digital health systems.", tech: [".NET", "C#", "React.js", "JavaScript", "TypeScript", "PostgreSQL", "REST APIs", "HL7", "FHIR", "Medical Device Integration", "Git"] },
+  { role: "Biomedical Engineering Intern", company: "National Trauma Center Hospital", period: "May 2023 — Jun 2023", desc: "Gained hands-on exposure to medical equipment, hospital technology, and biomedical engineering practices in a clinical setting. Observed how devices are used in patient care and supported basic checks and maintenance activities.", tech: ["Medical Devices", "ECG", "Patient Monitors", "Ventilators", "Infusion Pumps", "Equipment Calibration", "Preventive Maintenance", "Hospital Information Systems (HIS)"] },
 ];
 
 const projects = [
@@ -34,14 +34,14 @@ const projects = [
 
 const learning = [
   { topic: "Rust Lifetimes", note: "The borrow checker and I are becoming friends. Slowly.", tag: "deep dive" },
-  { topic: "Spanish", note: "A2 level. Can order ramen and complain about humidity.", tag: "slow burn" },
   { topic: "Analog Photography", note: "36 frames. No delete button. Learning to be patient.", tag: "ongoing" },
+  { topic: "Spanish", note: "A2 level. Can navigate everyday conversations and the occasional \"depende.\"", tag: "slow burn" },
 ];
 
 const books = [
-  { title: "Piranesi", author: "Susanna Clarke", thought: "A book that feels like a dream you don't want to wake from.", src: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&q=80" },
-  { title: "The Creative Act", author: "Rick Rubin", thought: "Every page is a permission slip to make things.", src: "https://images.unsplash.com/photo-1526243741027-444d633d7365?w=300&q=80" },
-  { title: "A Psalm for the Wild-Built", author: "Becky Chambers", thought: "Gentle optimism. The hug I didn't know I needed.", src: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&q=80" },
+  { title: "The Lion Women of Tehran", author: "Marjan Kamali", thought: "A sweeping story of friendship, betrayal, and revolution in Iran.", src: "https://images.unsplash.com/photo-1587876931567-564ce588bfbd?w=300&q=80" },
+  { title: "Malice", author: "Keigo Higashino", thought: "A puzzle box of a mystery that keeps unraveling until the last page.", src: "https://images.unsplash.com/photo-1598618443855-232ee0f4efb8?w=300&q=80" },
+  { title: "A Thousand Splendid Suns", author: "Khaled Hosseini", thought: "Heartbreaking and beautiful. A story that stays with you long after.", src: "https://images.unsplash.com/photo-1606800053952-7e802e27dbe8?w=300&q=80" },
 ];
 
 const til = [
@@ -115,11 +115,11 @@ export function Home() {
                 <p>when i'm away from the screen, you'll find me reading a book, learning something new, or spending time with cats.</p>
               </div>
               <div className="flex flex-wrap items-center gap-3">
-                <a href="#work" className="cozy-btn cozy-btn-primary">
-                  see what i do <ArrowDown size={14} />
+                <a href="#experience" className="cozy-btn cozy-btn-primary">
+                  my experience <ArrowDown size={14} />
                 </a>
-                <a href="#reading" className="cozy-btn cozy-btn-ghost">
-                  what i'm reading
+                <a href="#work" className="cozy-btn cozy-btn-ghost">
+                  see what i do
                 </a>
               </div>
             </motion.div>
@@ -142,6 +142,40 @@ export function Home() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section id="experience" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
+        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
+          <Mascot size={128} pose="engineer" className="shrink-0" />
+          <div>
+            <span className="cozy-label text-denim">Career</span>
+            <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">where i've worked</h2>
+          </div>
+        </motion.div>
+
+        <div className="space-y-4">
+          {experience.map((exp, i) => (
+            <motion.div key={exp.company} {...springCard(i)} className="cozy-card p-4 md:p-5 group relative pl-6 md:pl-7">
+              <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-accent/20 rounded-full" />
+              <div className="absolute -left-0.75 top-6 w-1.75 h-1.75 rounded-full bg-accent border-2 border-surface-card" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
+                <div>
+                  <h3 className="font-round font-bold text-base group-hover:text-accent transition-colors">{exp.role}</h3>
+                  <p className="text-sm text-accent font-round font-semibold">{exp.company}</p>
+                </div>
+                <span className="text-xs font-mono text-text-secondary whitespace-nowrap">{exp.period}</span>
+              </div>
+              <p className="text-sm text-text-secondary font-light">{exp.desc}</p>
+              {exp.tech && (
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {exp.tech.map((t) => (
+                    <span key={t} className="px-2 py-0.5 rounded-full text-[11px] font-round font-semibold bg-accent/8 text-accent-dark leading-relaxed">{t}</span>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -168,33 +202,6 @@ export function Home() {
                   view <ArrowUpRight size={11} />
                 </span>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section id="experience" className="py-8 md:py-10 px-6 md:px-10 lg:px-16 max-w-5xl mx-auto">
-        <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-6">
-          <Mascot size={128} pose="engineer" className="shrink-0" />
-          <div>
-            <span className="cozy-label text-denim">Career</span>
-            <h2 className="cozy-heading text-3xl md:text-4xl mt-0.5">where i've worked</h2>
-          </div>
-        </motion.div>
-
-        <div className="space-y-4">
-          {experience.map((exp, i) => (
-            <motion.div key={exp.company} {...springCard(i)} className="cozy-card p-4 md:p-5 group relative pl-6 md:pl-7">
-              <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-accent/20 rounded-full" />
-              <div className="absolute -left-0.75 top-6 w-1.75 h-1.75 rounded-full bg-accent border-2 border-surface-card" />
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
-                <div>
-                  <h3 className="font-round font-bold text-base group-hover:text-accent transition-colors">{exp.role}</h3>
-                  <p className="text-sm text-accent font-round font-semibold">{exp.company}</p>
-                </div>
-                <span className="text-xs font-mono text-text-secondary whitespace-nowrap">{exp.period}</span>
-              </div>
-              <p className="text-sm text-text-secondary font-light">{exp.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -262,9 +269,17 @@ export function Home() {
         <div className="grid md:grid-cols-3 gap-4">
           {books.map((b, i) => (
             <motion.div key={b.title} {...springCard(i)} className="cozy-card overflow-hidden group">
-              <div className="cozy-image aspect-4/3">
-                <img src={b.src} alt={b.title} className="w-full h-full object-cover" />
-              </div>
+                <div className="cozy-image aspect-4/3 flex items-center justify-center bg-(--color-surface-alt)/50 overflow-hidden">
+                  {b.title === "A Thousand Splendid Suns" ? (
+                    <ATSS className="w-full h-full p-2" />
+                  ) : b.title === "The Lion Women of Tehran" ? (
+                    <LionWomen className="w-full h-full p-2" />
+                  ) : b.title === "Malice" ? (
+                    <Malice className="w-full h-full p-2" />
+                  ) : (
+                    <img src={b.src} alt={b.title} className="w-full h-full object-cover" />
+                  )}
+                </div>
               <div className="p-5">
                 <h3 className="font-round font-bold text-base mb-0.5">{b.title}</h3>
                 <p className="text-xs font-round font-semibold text-accent mb-2">{b.author}</p>
